@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hsin-Chih Chang | Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: #f8fafc;
+        background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid #e2e8f0;
+        border-radius: 20px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    }
+    
+    .quote-font { font-family: 'Playfair Display', serif; }
+
+    /* 音樂波形動畫 */
+    .bar {
+        width: 3px;
+        background: #1DB954;
+        animation: dance 1s infinite ease-in-out;
+    }
+    .bar:nth-child(2) { animation-delay: 0.2s; }
+    .bar:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes dance {
+        0%, 100% { height: 4px; }
+        50% { height: 16px; }
+    }
+</style>
+</head>
+
+<body class="min-h-screen flex justify-center py-10 px-4 text-slate-800">
+
+<div class="max-w-[500px] w-full space-y-5">
+
+    <div class="card p-6 text-center relative overflow-hidden group">
+        <div class="absolute -top-24 -right-24 w-48 h-48 bg-blue-50 rounded-full blur-3xl opacity-60"></div>
+        <div class="relative z-10">
+            <div class="w-28 h-28 mx-auto rounded-full p-1 bg-white shadow-sm mb-4">
+                <img src="D778D5A8-3CE6-4047-8955-B010EFF0659F.png" class="w-full h-full rounded-full object-cover">
+            </div>
+            <h1 class="text-2xl font-bold text-slate-900 mb-1">Hsin-Chih Chang</h1>
+            <p class="text-slate-500 text-sm mb-1">Bio-Industrial Mechatronics Engineering</p>
+            <p class="text-blue-600 font-medium text-xs bg-blue-50 py-1 px-3 rounded-full inline-block">National Chung Hsing University</p>
+        </div>
+    </div>
+
+    <div class="card p-6">
+        <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">About Me</h2>
+        <div class="space-y-3 text-slate-600 text-sm leading-relaxed">
+            <p>
+                Bridging the gap between <strong class="text-slate-800">Technology and Nature</strong>. 
+                As a student at NCHU, I am dedicated to revolutionizing smart agriculture through AI.
+            </p>
+            <p>
+                My passion lies in teaching machines to 'see' and 'diagnose' plant health using advanced <strong class="text-blue-600">Deep Learning</strong> techniques. 
+                I believe that code can do more than just calculate—it can help things grow. 🌱
+            </p>
+        </div>
+    </div>
+
+    <div class="card p-4">
+        <div class="flex justify-between items-center mb-3 px-2">
+            <div>
+                <span class="text-[10px] font-bold text-blue-500 uppercase tracking-wider">Research</span>
+                <h3 class="text-lg font-bold text-slate-900 leading-tight">Leaf Analysis System</h3>
+            </div>
+        </div>
+        <div class="bg-slate-50 rounded-xl overflow-hidden border border-slate-100 relative group cursor-pointer">
+            <img src="evidence_test_001.png" class="w-full h-auto object-cover group-hover:scale-105 transition duration-500">
+        </div>
+    </div>
+
+    <div class="card p-0 overflow-hidden border-0 shadow-lg">
+        <img src="online.gif" alt="My Animation" class="w-full h-auto object-cover block">
+    </div>
+
+    <div class="card p-6 text-center relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-1 h-full bg-slate-200"></div>
+        <i class="ri-double-quotes-l text-4xl text-slate-100 absolute top-2 left-4"></i>
+        
+        <p class="quote-font text-xl text-slate-800 italic leading-relaxed z-10 relative">
+            "Stay hungry, stay foolish."
+        </p>
+        <p class="text-xs text-slate-400 mt-3 uppercase tracking-widest font-bold">
+            — Steve Jobs
+        </p>
+    </div>
+
+    <div class="card p-4 flex items-center gap-4 bg-black text-white border-0 shadow-lg shadow-gray-200">
+        <div class="w-16 h-16 rounded-lg bg-gray-800 flex-shrink-0 overflow-hidden relative group">
+            <img src="https://i.ytimg.com/vi/viimfQi_pUw/maxresdefault.jpg" 
+                 class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <i class="ri-play-fill text-2xl"></i>
+            </div>
+        </div>
+
+        <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+                <span class="text-[10px] font-bold text-[#1DB954] uppercase tracking-wider">Now Playing</span>
+                <div class="flex items-end gap-[2px] h-3 pb-0.5">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <h4 class="text-sm font-bold truncate">Ocean Eyes</h4>
+            <p class="text-xs text-gray-400 truncate">Billie Eilish</p>
+        </div>
+        <i class="ri-spotify-fill text-2xl text-[#1DB954]"></i>
+    </div>
+
+    <div class="grid grid-cols-2 gap-3">
+        <a href="https://github.com/Max526" target="_blank" class="card p-4 flex flex-col items-center gap-2 hover:bg-slate-900 hover:text-white transition-colors !border-0">
+            <i class="ri-github-fill text-2xl"></i>
+            <span class="text-xs font-bold">GitHub</span>
+        </a>
+        <a href="https://www.instagram.com/mad_kid_526/?utm_source=ig_web_button_share_sheet" target="_blank" class="card p-4 flex flex-col items-center gap-2 hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-600 hover:text-white transition-all !border-0">
+            <i class="ri-instagram-line text-2xl"></i>
+            <span class="text-xs font-bold">Instagram</span>
+        </a>
+    </div>
+
+    <p class="text-center text-[10px] text-slate-400 mt-6 pb-4">© 2026 Hsin-Chih Chang</p>
+
+</div>
+</body>
+</html>
