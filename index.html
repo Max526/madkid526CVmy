@@ -32,43 +32,58 @@
 
   .quote-font { font-family: 'Playfair Display', serif; }
 
+  /* Spotify 動態音軌 */
   .bar { width:3px; background:#1DB954; animation:dance 1s infinite ease-in-out; }
   .bar:nth-child(2){animation-delay:0.2s;}
   .bar:nth-child(3){animation-delay:0.4s;}
   @keyframes dance{0%,100%{height:4px;}50%{height:16px;}}
 
-  .modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:50; backdrop-filter: blur(5px); }
-  .modal img { max-width:90%; max-height:90%; border-radius:12px; }
+  /* Modal 樣式 */
+  .modal { display:none; position:fixed; inset:0; background:rgba(15,23,42,0.85); justify-content:center; align-items:center; z-index:50; backdrop-filter: blur(5px); }
+  .modal img { max-width:90%; max-height:90%; border-radius:12px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
 
+  /* 進場淡入動畫 */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+  .delay-600 { animation-delay: 0.6s; }
+  .delay-700 { animation-delay: 0.7s; }
+  .delay-800 { animation-delay: 0.8s; }
 </style>
 </head>
 
 <body class="min-h-screen flex justify-center py-10 px-4 text-slate-800">
 
-<div class="max-w-md md:max-w-2xl w-full space-y-5">
+<div class="max-w-md md:max-w-2xl w-full space-y-6">
 
-  <!-- Profile -->
-  <div class="card p-6 text-center">
+  <div class="card p-6 text-center relative animate-fade-up">
+    <div class="absolute top-4 right-4 bg-slate-900 text-green-400 font-mono text-[10px] px-2 py-1 rounded-md shadow-sm tracking-widest flex items-center gap-1">
+      <span class="text-green-500 animate-pulse">●</span>
+      <span id="clock"></span>
+    </div>
+
     <div class="w-28 h-28 mx-auto rounded-full p-1 bg-white shadow-sm mb-4">
       <img src="D778D5A8-3CE6-4047-8955-B010EFF0659F.png" class="w-full h-full rounded-full object-cover">
     </div>
-    <h1 class="text-2xl font-bold">Hsin-Chih Chang</h1>
-    <p class="text-slate-500 text-sm">Bio-Industrial Mechatronics Engineering</p>
-    <p class="text-blue-600 text-xs bg-blue-50 inline-block px-3 py-1 rounded-full mt-2">
+    <h1 class="text-2xl font-bold text-slate-900">Hsin-Chih Chang</h1>
+    <p class="text-slate-500 text-sm mt-1">Bio-Industrial Mechatronics Engineering</p>
+    <p class="text-blue-700 text-xs bg-blue-50 border border-blue-100 inline-block px-3 py-1 rounded-full mt-3 font-medium">
       National Chung Hsing University
     </p>
   </div>
-<!-- Mini AI Clock -->
-<div class="flex justify-center">
-  <div class="bg-black text-green-400 font-mono text-[10px] px-3 py-1 rounded-full shadow-md tracking-widest">
-    <span class="text-green-600 mr-1">●</span>
-    <span id="clock"></span>
-  </div>
-</div>
 
-  <!-- About -->
-  <div class="card p-6">
-    <h2 class="text-xs font-bold text-slate-400 uppercase mb-3">About Me</h2>
+  <div class="card p-6 animate-fade-up delay-100">
+    <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">About Me</h2>
     <p class="text-sm text-slate-600 leading-relaxed">
       Bridging the gap between <strong>Technology and Nature</strong>.  
       I focus on applying <strong class="text-blue-600">Deep Learning</strong> to smart agriculture systems,
@@ -76,17 +91,16 @@
     </p>
   </div>
 
-  <!-- Skills -->
-  <div class="card p-6">
-    <h2 class="text-xs font-bold text-slate-400 uppercase mb-4">Skills</h2>
+  <div class="card p-6 animate-fade-up delay-200">
+    <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Skills</h2>
 
-    <div class="space-y-4 text-sm">
+    <div class="space-y-4 text-sm font-medium text-slate-700">
       <div>
         <div class="flex justify-between mb-1">
           <span>Python / MATLAB</span>
           <span>85%</span>
         </div>
-        <div class="w-full bg-slate-200 rounded-full h-2">
+        <div class="w-full bg-slate-100 rounded-full h-2">
           <div class="bg-blue-600 h-2 rounded-full" style="width:85%"></div>
         </div>
       </div>
@@ -96,7 +110,7 @@
           <span>Deep Learning (U-Net / CNN)</span>
           <span>80%</span>
         </div>
-        <div class="w-full bg-slate-200 rounded-full h-2">
+        <div class="w-full bg-slate-100 rounded-full h-2">
           <div class="bg-green-500 h-2 rounded-full" style="width:80%"></div>
         </div>
       </div>
@@ -106,19 +120,18 @@
           <span>Computer Vision</span>
           <span>78%</span>
         </div>
-        <div class="w-full bg-slate-200 rounded-full h-2">
+        <div class="w-full bg-slate-100 rounded-full h-2">
           <div class="bg-purple-500 h-2 rounded-full" style="width:78%"></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Research -->
-  <div class="card p-6">
-    <h2 class="text-xs font-bold text-slate-400 uppercase mb-3">Research Project</h2>
-    <h3 class="text-lg font-bold mb-3">Leaf Analysis System</h3>
+  <div class="card p-6 animate-fade-up delay-300">
+    <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Research Project</h2>
+    <h3 class="text-lg font-bold mb-3 text-slate-800">Leaf Analysis System</h3>
 
-    <div class="rounded-xl overflow-hidden cursor-pointer" onclick="openModal('evidence_test_001.png')">
+    <div class="rounded-xl overflow-hidden cursor-pointer border border-slate-100 shadow-sm" onclick="openModal('evidence_test_001.png')">
       <img src="evidence_test_001.png" class="w-full object-cover hover:scale-105 transition duration-500">
     </div>
 
@@ -128,100 +141,90 @@
     </p>
   </div>
 
-  <!-- Experience -->
-  <div class="card p-6">
-    <h2 class="text-xs font-bold text-slate-400 uppercase mb-3">Experience</h2>
+  <div class="card p-6 animate-fade-up delay-400">
+    <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Experience</h2>
 
-    <div class="text-sm text-slate-600 space-y-3">
-      <div>
-        <p class="font-semibold text-slate-800">AI Smart Agriculture Project</p>
-        <p class="text-xs text-slate-400">2025 - Present</p>
+    <div class="text-sm space-y-4">
+      <div class="relative pl-4 border-l-2 border-blue-100">
+        <div class="absolute w-2 h-2 bg-blue-500 rounded-full -left-[5px] top-1.5"></div>
+        <p class="font-bold text-slate-800">AI Smart Agriculture Project</p>
+        <p class="text-xs text-slate-400 mt-0.5">2025 - Present</p>
       </div>
 
-      <div>
-        <p class="font-semibold text-slate-800">Microsoft Differential Equation Workshop</p>
-        <p class="text-xs text-slate-400">2025</p>
+      <div class="relative pl-4 border-l-2 border-blue-100">
+        <div class="absolute w-2 h-2 bg-slate-300 rounded-full -left-[5px] top-1.5"></div>
+        <p class="font-bold text-slate-800">Microsoft Differential Equation Workshop</p>
+        <p class="text-xs text-slate-400 mt-0.5">2025</p>
       </div>
     </div>
   </div>
-<!-- Experience GIF Gallery -->
-<div class="card p-4 space-y-4">
 
-  <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider">
-    Lab Moments
-  </h2>
-
-  <!-- GIF 1 -->
-  <div class="overflow-hidden rounded-xl shadow-md group">
-    <img src="online.gif"
-         alt="Lab Animation 1"
-         class="w-full object-cover transition duration-500 group-hover:scale-105">
+  <div class="card p-6 animate-fade-up delay-500">
+    <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Moments</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+      <div class="overflow-hidden rounded-xl shadow-sm border border-slate-100 group">
+        <img src="online.gif" alt="Lab Animation 1" class="w-full h-40 object-cover transition duration-500 group-hover:scale-105">
+      </div>
+      <div class="overflow-hidden rounded-xl shadow-sm border border-slate-100 group">
+        <img src="online2.gif" alt="Lab Animation 2" class="w-full h-40 object-cover transition duration-500 group-hover:scale-105">
+      </div>
+    </div>
+    
+    <div class="overflow-hidden rounded-xl shadow-sm border border-slate-100 group">
+      <img src="Totoro.gif" alt="My Neighbor Totoro" class="w-full h-48 md:h-56 object-cover transition duration-500 group-hover:scale-105">
+    </div>
   </div>
 
-  <!-- GIF 2 -->
-  <div class="overflow-hidden rounded-xl shadow-md group">
-    <img src="online2.gif"
-         alt="Lab Animation 2"
-         class="w-full object-cover transition duration-500 group-hover:scale-105">
-  </div>
-
-</div>
-
-<!-- Totoro GIF -->
-<div class="overflow-hidden rounded-xl shadow-md group">
-  <img src="Totoro.gif"
-       alt="My Neighbor Totoro"
-       class="w-full object-cover transition duration-500 group-hover:scale-105">
-</div>
- <!-- Quote -->
-  <div class="card p-6 text-center">
-    <p class="quote-font text-xl italic">
+  <div class="card p-6 text-center animate-fade-up delay-600">
+    <p class="quote-font text-xl italic text-slate-700">
       "Stay hungry, stay foolish."
     </p>
-    <p class="text-xs text-slate-400 mt-2">— Steve Jobs</p>
+    <p class="text-xs text-slate-400 mt-2 font-medium">— Steve Jobs</p>
   </div>
-  <!-- Spotify -->
-<div class="card p-4 flex items-center gap-4 bg-black text-white border-0">
-  <div class="w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
-    <img src="https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?w=300"
-         alt="Music Cover"
-         class="w-full h-full object-cover">
-  </div>
-  <div class="flex-1">
-    <div class="flex items-center gap-2 mb-1">
-      <span class="text-[10px] text-[#1DB954] uppercase">Now Playing</span>
-      <div class="flex items-end gap-[2px] h-3">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
+
+  <div class="card p-4 flex items-center gap-4 bg-slate-900 text-white border-0 shadow-lg shadow-slate-200/50 animate-fade-up delay-700">
+    <div class="w-16 h-16 bg-gray-800 rounded-lg overflow-hidden shadow-inner">
+      <img src="https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?w=300"
+           alt="Music Cover"
+           class="w-full h-full object-cover">
     </div>
-    <h4 class="text-sm font-bold">Ocean Eyes</h4>
-    <p class="text-xs text-gray-400">Billie Eilish</p>
-  </div>
-</div>
-
-
-  <!-- Contact -->
-  <div class="card p-6 text-center">
-    <h2 class="text-xs font-bold text-slate-400 uppercase mb-3">Contact</h2>
-    <p class="text-sm text-slate-600">s112040074@mail.nchu.edu.tw</p>
-  </div>
-
-  <!-- Social -->
-  <div class="grid grid-cols-2 gap-3">
-    <a href="https://github.com/Max526" target="_blank" class="card p-4 text-center hover:bg-slate-900 hover:text-white transition">
-      <i class="ri-github-fill text-2xl"></i>
-      <p class="text-xs font-bold mt-1">GitHub</p>
-    </a>
-    <a href="https://www.instagram.com/mad_kid_526/" target="_blank" class="card p-4 text-center hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-600 hover:text-white transition">
-      <i class="ri-instagram-line text-2xl"></i>
-      <p class="text-xs font-bold mt-1">Instagram</p>
-    </a>
+    <div class="flex-1">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="text-[10px] text-[#1DB954] font-bold tracking-widest uppercase">Now Playing</span>
+        <div class="flex items-end gap-[2px] h-3">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+      <h4 class="text-sm font-bold tracking-wide">Ocean Eyes</h4>
+      <p class="text-xs text-slate-400 mt-0.5">Billie Eilish</p>
+    </div>
   </div>
 
-  <p class="text-center text-xs text-slate-400 mt-6">
-    © <span id="year"></span>Built by Hsin-Chih Chang
+  <div class="animate-fade-up delay-800 space-y-4">
+    <div class="card p-6 text-center">
+      <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Contact</h2>
+      <a href="mailto:s112040074@mail.nchu.edu.tw" class="text-sm text-slate-600 font-medium hover:text-blue-600 transition">
+        s112040074@mail.nchu.edu.tw
+      </a>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4">
+      <a href="https://github.com/Max526" target="_blank" class="card p-4 text-center hover:bg-slate-900 hover:text-white transition group">
+        <i class="ri-github-fill text-2xl group-hover:scale-110 transition-transform inline-block"></i>
+        <p class="text-xs font-bold mt-1">GitHub</p>
+      </a>
+      <a href="https://www.instagram.com/mad_kid_526/" target="_blank" class="card p-4 text-center hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-600 hover:text-white transition group border-transparent">
+        <i class="ri-instagram-line text-2xl group-hover:scale-110 transition-transform inline-block"></i>
+        <p class="text-xs font-bold mt-1">Instagram</p>
+      </a>
+    </div>
+  </div>
+
+  <p class="text-center text-xs text-slate-400 mt-8 mb-4">
+    © <span id="year"></span> Built by Hsin-Chih Chang
   </p>
 
 </div>
@@ -241,23 +244,19 @@
   function closeModal() {
     document.getElementById('modal').style.display = 'none';
   }
-</script>
-<script>
+
   function updateClock() {
     const now = new Date();
-
     const formatted =
       String(now.getHours()).padStart(2,'0') + ":" +
       String(now.getMinutes()).padStart(2,'0') + ":" +
       String(now.getSeconds()).padStart(2,'0');
-
     document.getElementById("clock").textContent = formatted;
   }
 
   setInterval(updateClock, 1000);
   updateClock();
 </script>
-
 
 </body>
 </html>
