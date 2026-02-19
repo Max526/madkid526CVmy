@@ -58,6 +58,13 @@
       National Chung Hsing University
     </p>
   </div>
+<!-- Mini AI Clock -->
+<div class="flex justify-center">
+  <div class="bg-black text-green-400 font-mono text-[10px] px-3 py-1 rounded-full shadow-md tracking-widest">
+    <span class="text-green-600 mr-1">●</span>
+    <span id="clock"></span>
+  </div>
+</div>
 
   <!-- About -->
   <div class="card p-6">
@@ -160,15 +167,19 @@
 
 </div>
 
-
-  <!-- Quote -->
+<!-- Totoro GIF -->
+<div class="overflow-hidden rounded-xl shadow-md group">
+  <img src="Totoro.gif"
+       alt="My Neighbor Totoro"
+       class="w-full object-cover transition duration-500 group-hover:scale-105">
+</div>
+ <!-- Quote -->
   <div class="card p-6 text-center">
     <p class="quote-font text-xl italic">
       "Stay hungry, stay foolish."
     </p>
     <p class="text-xs text-slate-400 mt-2">— Steve Jobs</p>
   </div>
-
   <!-- Spotify -->
 <div class="card p-4 flex items-center gap-4 bg-black text-white border-0">
   <div class="w-16 h-16 bg-gray-800 rounded-lg overflow-hidden">
@@ -231,6 +242,22 @@
     document.getElementById('modal').style.display = 'none';
   }
 </script>
+<script>
+  function updateClock() {
+    const now = new Date();
+
+    const formatted =
+      String(now.getHours()).padStart(2,'0') + ":" +
+      String(now.getMinutes()).padStart(2,'0') + ":" +
+      String(now.getSeconds()).padStart(2,'0');
+
+    document.getElementById("clock").textContent = formatted;
+  }
+
+  setInterval(updateClock, 1000);
+  updateClock();
+</script>
+
 
 </body>
 </html>
